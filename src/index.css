@@ -1,0 +1,121 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@font-face {
+  font-family: 'NumbersFont';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/manrope/v20/xn7_YHE41ni1AdIRqAuZuw1Bx9mbZk79FO_F.ttf) format('truetype');
+  unicode-range: U+30-39;
+}
+
+@theme {
+  /* ===========================
+     GOA MOMENTS COLOR PALETTE (As requested)
+     =========================== */
+
+  /* Backgrounds */
+  --color-background: #0d0408; /* Very dark magenta tint */
+  --color-surface: #14070c;
+  --color-card: #14070c;
+  --color-popover: #14070c;
+
+  /* Primary (White) */
+  --color-primary: #FFFFFF;
+  --color-primary-foreground: #0d0408;
+
+  /* Brand / Magenta Accent */
+  --color-brand: #8a0755;
+  --color-brand-foreground: #FFFFFF;
+  
+  /* Secondary (Soft Gray) */
+  --color-secondary: #A3A3A3;
+  --color-secondary-foreground: #0d0408;
+
+  /* Accent */
+  --color-accent: #8a0755;
+  --color-accent-foreground: #FFFFFF;
+
+  /* Text / Foreground */
+  --color-text: #FFFFFF;
+  --color-foreground: #FFFFFF;
+  --color-text-secondary: #A3A3A3;
+  --color-muted-foreground: #A3A3A3;
+  --color-muted: #14070c;
+
+  /* Border */
+  --color-border: rgba(255,255,255,0.08);
+  --color-input: rgba(255,255,255,0.08);
+  --color-ring: #8a0755;
+
+  /* Fonts */
+  --color-transparent: transparent;
+  --font-heading: 'NumbersFont', 'Italiana', serif;
+  --font-sans: 'NumbersFont', 'Manrope', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply font-sans antialiased overflow-x-hidden bg-background text-foreground;
+    cursor: default;
+    color-scheme: dark;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading tracking-wide;
+  }
+  ::selection {
+    @apply bg-accent/30 text-white;
+  }
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-surface/50 backdrop-blur-md border border-white/5 shadow-xl;
+  }
+  .glass-card {
+    @apply bg-card/60 backdrop-blur-lg border border-border/50 rounded-2xl;
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+  }
+  @keyframes marquee2 {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(0%); }
+  }
+  .animate-marquee {
+    animation: marquee 25s linear infinite;
+  }
+  .animate-marquee2 {
+    animation: marquee2 25s linear infinite;
+  }
+}
+
+@theme inline {
+  --animate-marquee: marquee var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+  @keyframes marquee {
+  from {
+    transform: translateX(0);
+    }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+    }
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
+}
