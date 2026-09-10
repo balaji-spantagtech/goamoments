@@ -93,8 +93,8 @@ const Hero = () => {
             />
           </div>
           <div className="flex flex-col sm:flex-row gap-6 justify-center mt-4">
-            <Button variant="primary" className="rounded-full flex items-center gap-2">Explore Festival <span>&#10095;</span></Button>
-            <Button variant="outline" className="rounded-full flex items-center gap-2">Book Tickets <span>&#10095;</span></Button>
+            <Button variant="primary" href="/#highlights" className="rounded-full flex items-center gap-2">Explore Festival <span>&#10095;</span></Button>
+            <Button variant="outline" href="/booking" className="rounded-full flex items-center gap-2">Book Tickets <span>&#10095;</span></Button>
           </div>
         </motion.div>
       </div>

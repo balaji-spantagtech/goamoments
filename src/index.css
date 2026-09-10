@@ -37,6 +37,7 @@
   /* Accent */
   --color-accent: #8a0755;
   --color-accent-foreground: #FFFFFF;
+  --color-accent-gold: #bd8b13;
 
   /* Text / Foreground */
   --color-text: #FFFFFF;
@@ -73,6 +74,7 @@
   }
   html {
     @apply font-sans bg-background text-foreground;
+    scroll-behavior: smooth;
   }
 }
 

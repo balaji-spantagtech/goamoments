@@ -60,14 +60,14 @@ const Slide = ({
     <div className="[perspective:1200px] [transform-style:preserve-3d]">
       <li
         ref={slideRef}
-        className="flex flex-1 flex-col items-center justify-center relative text-center text-white opacity-100 transition-all duration-300 ease-in-out w-[70vmin] h-[70vmin] mx-[4vmin] z-10 "
+        className="flex flex-1 flex-col items-center justify-center relative text-center text-white opacity-100 transition-all duration-300 ease-in-out w-[70vmin] h-[70vmin] mx-0 z-10 "
         onClick={() => handleSlideClick(index)}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         style={{
           transform:
             current !== index
-              ? "scale(0.98) rotateX(8deg)"
+              ? "scale(1) rotateX(8deg)"
               : "scale(1) rotateX(0deg)",
           transition: "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
           transformOrigin: "bottom",
@@ -91,12 +91,12 @@ const Slide = ({
             loading="eager"
             decoding="sync" />
           {current === index && (
-            <div className="absolute inset-0 bg-black/30 transition-all duration-1000" />
+            <div className="absolute inset-0 bg-black/30 transition-all duration-500" />
           )}
         </div>
 
         <article
-          className={`relative p-[4vmin] transition-opacity duration-1000 ease-in-out ${
+          className={`relative p-[4vmin] transition-opacity duration-500 ease-in-out ${
             current === index ? "opacity-100 visible" : "opacity-0 invisible"
           }`}>
           <h2 className="text-lg md:text-2xl lg:text-4xl font-semibold  relative">
@@ -146,6 +146,14 @@ export default function Carousel({
     setCurrent(next === slides.length ? 0 : next);
   };
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1 === slides.length ? 0 : prev + 1));
+    }, 2500);
+
+    return () => clearInterval(timer);
+  }, [slides.length, current]);
+
   const handleSlideClick = (index) => {
     if (current !== index) {
       setCurrent(index);
@@ -159,7 +167,7 @@ export default function Carousel({
       className="relative w-[70vmin] h-[70vmin] mx-auto"
       aria-labelledby={`carousel-heading-${id}`}>
       <ul
-        className="absolute flex mx-[-4vmin] transition-transform duration-1000 ease-in-out"
+        className="absolute flex mx-0 transition-transform duration-500 ease-in-out"
         style={{
           transform: `translateX(-${current * (100 / slides.length)}%)`,
         }}>

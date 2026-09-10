@@ -14,7 +14,7 @@ const Section = ({ id, className = '', children, title, subtitle }) => {
         className="max-w-7xl mx-auto"
       >
         {(title || subtitle) && (
-          <div className="mb-16 text-center">
+          <div className="mb-14 text-center">
             {title && (
               <h2 className="text-4xl md:text-5xl lg:text-6xl text-primary uppercase overflow-hidden">
                 <TextScrollAnimation text={title} />

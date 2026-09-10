@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Section from './ui/Section';
 import Button from './ui/Button';
 import { Timeline } from './ui/timeline';
@@ -29,6 +30,8 @@ const schedule = [
 ];
 
 const UpcomingShows = () => {
+  const navigate = useNavigate();
+  
   const data = schedule.map(event => ({
     title: (
       <div className="flex flex-col text-white items-start">
@@ -47,14 +50,14 @@ const UpcomingShows = () => {
             <span className="text-primary font-bold">Venue:</span> {event.venue}
           </div>
         </div>
-        <Button variant="outline" className="group-hover:bg-primary group-hover:text-background border-border hover:border-primary">Reserve Seat</Button>
+        <Button onClick={() => navigate('/booking')} variant="outline" className="group-hover:bg-accent-gold group-hover:text-background border-border hover:border-accent-gold">Reserve Seat</Button>
       </div>
     )
   }));
 
   return (
     <Section id="shows" className="bg-background pt-24 pb-0">
-      <div className="text-center mb-16">
+      <div className="text-center mb-8">
         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white uppercase font-heading">
           <TextScrollAnimation text="Event Schedule" />
         </h2>
