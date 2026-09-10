@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { motion, useAnimate } from 'framer-motion';
+import { motion, useAnimate } from 'motion/react';
 import Button from './ui/Button';
 import { TextGenerateEffect } from './ui/text-generate-effect';
 import landingBg from '../assets/hero-logo/landing-page.png';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import Section from './ui/Section';
 import { staggerContainer, fadeUp } from '../utils/animations';
 import { NumberTicker } from './ui/number-ticker';

@@ -29,7 +29,7 @@ const BookingPage = () => {
 
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % bannerImages.length);
-    }, 200); // Fast slideshow/flickering effect
+    }, 200);
 
     return () => clearInterval(interval);
   }, []);

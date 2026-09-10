@@ -6,9 +6,11 @@ const Footer = () => {
   return (
     <footer className="bg-background pt-24 pb-8 border-t border-border relative overflow-hidden">
       {/* Background Image */}
-      <div 
-        className="absolute inset-0 z-0 opacity-10 pointer-events-none bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${footerImg})` }}
+      <img
+        src={footerImg}
+        alt=""
+        loading="lazy"
+        className="absolute inset-0 z-0 h-full w-full object-cover opacity-10 pointer-events-none"
       />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-4 gap-12 mb-16 relative z-10">

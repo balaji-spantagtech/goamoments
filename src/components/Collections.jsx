@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import Section from './ui/Section';
 import { staggerContainer, fadeUp } from '../utils/animations';
 import { Crown, Shirt, Clapperboard, Award, Handshake, Briefcase, Music, Star, Camera } from 'lucide-react';

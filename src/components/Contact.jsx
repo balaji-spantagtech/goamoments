@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import Section from './ui/Section';
 import Button from './ui/Button';
 import { MapPin, Phone, Mail } from 'lucide-react';
